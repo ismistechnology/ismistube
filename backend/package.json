@@ -1,27 +1,19 @@
 {
   "name": "ismistube-backend",
   "version": "1.0.0",
-  "description": "Backend for IsmisTube app",
+  "description": "Backend for ismistube app",
   "main": "server.js",
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
-    "build": "echo 'No build step required'"
+    "dev": "nodemon server.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "multer": "^1.4.5-lts.1",
-    "socket.io": "^4.7.4",
-    "express-session": "^1.17.3",
-    "bcrypt": "^5.1.1"
+  "express": "^4.18.2",
+  "socket.io": "^4.7.4"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
-  "keywords": ["video", "social", "tiktok", "youtube", "streaming"],
   "author": "IsmisTube",
   "license": "MIT"
 }
