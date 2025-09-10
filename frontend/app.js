@@ -1,4 +1,7 @@
-const socket = io();
+const socket = io("https://ismistube-2.onrender.com");
+
+// API Base URL
+const API_URL = "https://ismistube-2.onrender.com";
 
 // DOM Elements
 const loginBtn = document.getElementById('loginBtn');
