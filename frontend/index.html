@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IsmisTube - Share Your Moments</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo-section">
+        <img src="logo/logo.png" alt="IsmisTube Logo" class="nav-logo" onerror="this.style.display='none'">
+        <h1 class="brand-name">IsmisTube</h1>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-btn" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="user-menu" id="userMenu" style="display:none;">
+          <span id="currentUser"></span>
+          <button class="logout-btn" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Authentication Section -->
+  <div id="auth" class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2>Welcome to IsmisTube</h2>
+        <p>Share your amazing moments with the world</p>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="tab-btn active" onclick="showTab('login')">Login</button>
+        <button class="tab-btn" onclick="showTab('register')">Register</button>
+      </div>
+
+      <div id="login" class="auth-form active">
+        <div class="form-group">
+          <i class="fas fa-user icon"></i>
+          <input type="text" id="loginUsername" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-lock icon"></i>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+        </div>
+        <button class="auth-submit-btn" id="loginBtn">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </button>
+      </div>
+
+      <div id="register" class="auth-form">
+        <div class="form-group">
+          <i class="fas fa-user-plus icon"></i>
+          <input type="text" id="regUsername" placeholder="Choose Username" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-lock icon"></i>
+          <input type="password" id="regPassword" placeholder="Create Password" required>
+        </div>
+        <button class="auth-submit-btn" id="regBtn">
+          <i class="fas fa-user-plus"></i> Create Account
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main App Section -->
+  <div id="app" class="app-container" style="display:none;">
+    <!-- Upload Section -->
+    <div class="upload-section">
+      <div class="upload-card">
+        <div class="upload-header">
+          <i class="fas fa-cloud-upload-alt upload-icon"></i>
+          <h3>Share Your Video</h3>
+          <p>Upload and share amazing moments with your audience</p>
+        </div>
+        <div class="upload-area" id="uploadArea">
+          <input type="file" id="videoFile" accept="video/*" style="display:none;">
+          <div class="upload-placeholder">
+            <i class="fas fa-video upload-placeholder-icon"></i>
+            <p>Click to select a video file</p>
+            <span class="upload-hint">MP4, MOV, AVI up to 1GB</span>
+          </div>
+        </div>
+        <button class="upload-btn" id="uploadBtn">
+          <i class="fas fa-upload"></i> Upload Video
+        </button>
+      </div>
+    </div>
+
+    <!-- Video Feed -->
+    <div class="feed-container">
+      <div class="feed-header">
+        <h2><i class="fas fa-play-circle"></i> Latest Videos</h2>
+      </div>
+      <div id="feed" class="video-feed"></div>
+    </div>
+
+    <!-- Chat Section -->
+    <div class="chat-section">
+      <div class="chat-card">
+        <div class="chat-header">
+          <i class="fas fa-comments"></i>
+          <h3>Live Chat</h3>
+        </div>
+        <div class="chat-messages" id="messages"></div>
+        <div class="chat-input-area">
+          <input type="text" id="m" placeholder="Type your message..." autocomplete="off">
+          <button id="sendBtn" class="send-btn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
