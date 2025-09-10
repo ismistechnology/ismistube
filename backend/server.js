@@ -154,3 +154,16 @@ http.listen(PORT, () => {
   console.log(`IsmisTube server running on port ${PORT} in ${NODE_ENV} mode`);
   console.log(`Access at: http://localhost:${PORT}`);
 });
+const express = require("express");
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+
+// Basic route
+app.get("/", (req, res) => {
+  res.send("🎬 Ismistube is running successfully on Render!");
+});
+
+app.listen(PORT, () => {
+  console.log(`✅ Ismistube server running on port ${PORT}`);
+});
